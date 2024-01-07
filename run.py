@@ -84,32 +84,9 @@ twitch_miner = TwitchChannelPointsMiner(
 keep_alive.keep_alive()
 
 twitch_miner.mine(
-  ["hitsquadgodfather",
-   "easportsfc",
-    "hitbotc",
-     #"savii",
-     #"worldoftanks",
-     #"skill4ltu",
-    #"happykrakenx", #sea of theive drops
-    #"mrtyluur",
-     #"callofduty",
-    #"azuki", #huntshowdown drops
-    #"meninoneitam", #battlebit drops
-    #"callofdutybravo",
-    "rainbow6",
-    #"rainbow6es",
-
-    #"rainbow6bravo",
-
-    #"rainbow6es",
-    "yato82",
-    "rainman_fps",
-    #"blackhaat",
-    #"hungryghost_hg",
-    #"dreaminspirit",
-    #"m0r3ib",
-    #"mrnimpo",
-    ],                                  # Array of streamers (order = priority)
+  [Streamer(os.environ.get("streamer1"),settings=StreamerSettings(make_predictions=True,follow_raid=False,claim_drops=False,watch_streak=True)),
+    Streamer(os.environ.get("streamer2"),settings=StreamerSettings(make_predictions=True,follow_raid=False,claim_drops=False,watch_streak=True)),
+  ],                                    # Array of streamers (order = priority)
     followers=False,                    # Automatic download the list of your followers
     followers_order=FollowersOrder.ASC  # Sort the followers list by follow date. ASC or DESC
 )
